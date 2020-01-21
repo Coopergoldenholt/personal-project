@@ -1,0 +1,22 @@
+.header {
+	height: 10vh;
+	width: 100vw;
+	display: flex;
+	justify-content: space-around;
+	background: #50c878;
+	align-items: center;
+	position: fixed;
+}
+
+.header-right {
+	display: flex;
+	justify-content: space-around;
+	color: black;
+	width: 17%;
+}
+
+.header-text {
+	color: white;
+	text-decoration: underline;
+	text-decoration-color: white;
+}

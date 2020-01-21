@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { Elements } from "react-stripe-elements";
 import Home from "./components/Home/Home";
 import DashBoard from "./components/Dashboard/Dashboard";
 import Login from "./components/Login/Login";
@@ -17,6 +18,7 @@ import WizardPageNine from "./components/Wizard/WizardPageNine";
 import WizardPageTen from "./components/Wizard/WizardPageTen";
 import WizardPageEleven from "./components/Wizard/WizardPageEleven";
 import SubmitPage from "./components/Wizard/SubmitPage";
+import NewCharge from "./components/NewCharge/NewCharge";
 
 export default (
 	<Switch>
@@ -24,7 +26,14 @@ export default (
 		<Route path="/dashboard" component={DashBoard} />
 		<Route path="/auth/login" component={Login} />
 		<Route path="/auth/register" component={SignUpForm} />
-		<Route path="/auth/subscribe" component={Subscribe} />
+		<Route
+			path="/auth/subscribe"
+			render={() => (
+				<Elements>
+					<Subscribe />
+				</Elements>
+			)}
+		/>
 		<Route path="/form/one" component={WizardPageOne} />
 		<Route path="/form/two" component={WizardPageTwo} />
 		<Route path="/form/three" component={WizardPageThree} />
@@ -37,5 +46,6 @@ export default (
 		<Route path="/form/ten" component={WizardPageTen} />
 		<Route path="/form/eleven" component={WizardPageEleven} />
 		<Route path="/form/submit" component={SubmitPage} />
+		<Route path="/form/new-charge" component={NewCharge} />
 	</Switch>
 );
