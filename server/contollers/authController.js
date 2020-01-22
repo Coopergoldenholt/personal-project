@@ -19,7 +19,6 @@ module.exports = {
 		]);
 		req.session.user = { username: user.username, id: user.id, loggedIn: true };
 		res.send(req.session.user);
-		console.log(req.session.user);
 	},
 
 	login: async (req, res) => {
@@ -34,11 +33,11 @@ module.exports = {
 			req.session.user = {
 				username: existingUser.username,
 				id: existingUser.id,
-				loggedIn: true
+				loggedIn: true,
+				subscription: existingUser.subscription
 			};
 			res.send(req.session.user);
 		} else res.status(401).send("Username or password incorrect");
-		console.log(req.session.user);
 	},
 
 	getUser: (req, res) => {

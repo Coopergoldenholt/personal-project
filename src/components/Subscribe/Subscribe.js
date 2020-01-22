@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
+import { withRouter } from "react-router-dom";
+import axios from "axios";
+import { connect } from "react-redux";
 
 class Subscribe extends Component {
 	constructor() {
@@ -7,15 +10,19 @@ class Subscribe extends Component {
 		this.submit = this.submit.bind(this);
 	}
 	async submit() {
-		let { token } = await this.props.stripe.createToken({ name: "Name" });
-		console.log(token);
-		let response = await fetch("/charge", {
-			method: "POST",
-			headers: { "Content-Type": "text/plain" },
-			body: token.id
-		});
+		const { id } = this.props.user.user;
+		let token = await this.props.stripe.createToken({ name: "name" });
 
-		if (response.ok) console.log("Purchase Complete!");
+		let response = await axios.post("/charge", { token });
+
+		if (response.status === 200) {
+			alert("Thank You For Your Purcahse!");
+			axios.post(`/api/subscription/${id}`).then(res => {
+				this.props.history.push("/form/one");
+			});
+		} else {
+			alert("Your Payment Could Not Be Proccessed");
+		}
 	}
 	render() {
 		return (
@@ -28,4 +35,11 @@ class Subscribe extends Component {
 	}
 }
 
-export default injectStripe(Subscribe);
+const mapStateToProps = state => {
+	const { user } = state;
+	return {
+		user
+	};
+};
+
+export default injectStripe(connect(mapStateToProps)(withRouter(Subscribe)));

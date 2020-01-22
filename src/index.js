@@ -9,13 +9,13 @@ import { HashRouter as Router } from "react-router-dom";
 import { StripeProvider } from "react-stripe-elements";
 
 ReactDOM.render(
-	<StripeProvider apiKey="pk_live_uS9TlGpXu25gJ83vtNfIBrib">
-		<Router>
-			<Provider store={store}>
+	<Router>
+		<Provider store={store}>
+			<StripeProvider apiKey="pk_test_lIIjmPXDC14Z7iLy9f80FgWz">
 				<App />
-			</Provider>
-		</Router>
-	</StripeProvider>,
+			</StripeProvider>
+		</Provider>
+	</Router>,
 	document.getElementById("root")
 );
 

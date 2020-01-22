@@ -28,25 +28,19 @@ class WizardPageOne extends Component {
 			total: wage,
 			genId: 1,
 			monthId: monthId
-		}).then(res => {
-			console.log("first axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Interest",
 			total: interest,
 			genId: 1,
 			monthId: monthId
-		}).then(res => {
-			console.log("second axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Misc.",
 			total: misc,
 			genId: 1,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		this.props.history.push("/form/two");
 	};
 

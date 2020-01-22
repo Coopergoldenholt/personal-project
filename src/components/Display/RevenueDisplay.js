@@ -7,7 +7,7 @@ function RevenueDisplay(props) {
 			<h2>{name}</h2>
 			<div>
 				<p>Allocated Budget: {total}</p>
-				<p>What You Have Made: {spending}</p>
+				<p>What You Have Spent: {spending}</p>
 			</div>
 		</div>
 	);

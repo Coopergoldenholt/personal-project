@@ -23,7 +23,7 @@ class SignUpForm extends Component {
 	signUpUser = () => {
 		const { username, password, name, subscription } = this.state;
 		this.props.signup(username, password, name, subscription);
-		this.props.history.push("/form/one");
+		this.props.history.push("/auth/subscribe");
 	};
 
 	render() {

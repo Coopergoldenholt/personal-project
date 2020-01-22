@@ -15,17 +15,30 @@ module.exports = {
 	getExpenses: async (req, res) => {
 		const db = req.app.get("db");
 		const { userId } = req.params;
-		const categoryBudget = await db.expenses.get_expenses_by_gen_id([userId]);
-		res.status(200).send(categoryBudget);
+		const allExpenses = await db.expenses.get_expenses_by_user_id([userId]);
+		res.status(200).send(allExpenses);
 	},
-	editExpenses: async (req, res) => {
+	editSpending: async (req, res) => {
 		const db = req.app.get("db");
 		const { spending, genId, monthId, name } = req.body;
 		const { userId } = req.params;
-		console.log(req.body);
-		console.log(req.params);
-		await db.expenses.edit_expenses([userId, genId, monthId, name, spending]);
+		await db.expenses.edit_spending([userId, genId, monthId, name, spending]);
 
 		res.status(200).send("Spending Added");
+	},
+	editExpenses: async (req, res) => {
+		const db = req.app.get("db");
+		const { total, genId, monthId, name } = req.body;
+		const { userId } = req.params;
+		await db.expenses.edit_expenses([userId, genId, monthId, name, total]);
+
+		res.status(200).send("Expense Edited");
+	},
+	getSumExpenses: async (req, res) => {
+		const db = req.app.get("db");
+		const { userId } = req.params;
+		const expenseSums = await db.expenses.get_sum_expenses([userId]);
+		console.log(expenseSums);
+		res.status(200).send(expenseSums);
 	}
 };

@@ -1,11 +1,30 @@
 import axios from "axios";
-import { GET_USER, SIGNUP, LOGIN, LOGOUT } from "./actionTypes";
+import {
+	GET_USER,
+	SIGNUP,
+	LOGIN,
+	LOGOUT,
+	TOGGLE_EDIT_TRUE,
+	TOGGLE_EDIT_FALSE
+} from "./actionTypes";
 
 const initialState = {
 	user: {},
 	redirect: false,
 	error: false,
-	loading: false
+	loading: false,
+	editing: false
+};
+
+export const toggelEditTrue = () => {
+	return {
+		type: TOGGLE_EDIT_TRUE
+	};
+};
+export const toggelEditFalse = () => {
+	return {
+		type: TOGGLE_EDIT_FALSE
+	};
 };
 
 export const signup = (username, password, name, subscription) => {
@@ -43,6 +62,16 @@ export const logout = () => {
 export default function(state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
+		case TOGGLE_EDIT_TRUE:
+			return {
+				...state,
+				editing: true
+			};
+		case TOGGLE_EDIT_FALSE:
+			return {
+				...state,
+				editing: false
+			};
 		case `${LOGIN}_FULFILLED`:
 			return {
 				user: payload,

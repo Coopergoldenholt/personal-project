@@ -13,6 +13,7 @@ const authCheck = require("./middleware/authCheck");
 const initSession = require("./middleware/initSession");
 const expCtrl = require("./contollers/expensesController");
 const stripe = require("stripe")(SECRET_KEY);
+const subCtrl = require("./contollers/subscriptionController");
 
 const app = express();
 
@@ -36,24 +37,27 @@ app.delete("/api/logout", authCtrl.logout);
 //* expense endpoints
 app.post("/api/expenses/:userId", expCtrl.saveExpenses);
 app.get("/api/expenses/:userId", expCtrl.getExpenses);
+app.put(`/api/spending/:userId`, expCtrl.editSpending);
 app.put(`/api/expenses/:userId`, expCtrl.editExpenses);
+app.get(`/api/expenses/total/:userId`, expCtrl.getSumExpenses);
 
 //*stripe endpoint
 app.post("/charge", async (req, res) => {
 	try {
 		let { status } = await stripe.charges.create({
-			amount: 2000,
+			amount: 500,
 			currency: "usd",
-			description: "An example charge",
-			source: req.body
+			source: req.body.token.token.id
 		});
 
-		res.json({ status });
+		return res.status(200).send({ status });
 	} catch (err) {
-		console.log(err);
-		res.status(500).end();
+		res.status(500).send(err);
 	}
 });
+
+//*Subscription Endpoint
+app.post("/api/subscription/:id", subCtrl.switchSubscription);
 
 massive(CONNECTION_STRING).then(db => {
 	app.set("db", db);

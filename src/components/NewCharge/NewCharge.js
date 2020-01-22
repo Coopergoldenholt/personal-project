@@ -35,7 +35,22 @@ class NewCharge extends Component {
 			spending: e.target.value
 		});
 	}
-	handleSubmit() {
+	handleSpendingSubmit() {
+		const { genId, name, monthId, spending } = this.state;
+		const { id } = this.props.user.user;
+		const userId = id;
+		axios
+			.put(`/api/spending/${userId}`, {
+				genId: genId,
+				name: name,
+				monthId: monthId,
+				spending: spending
+			})
+			.then(res => {
+				this.props.history.push("/dashboard");
+			});
+	}
+	handleExpenseSubmit() {
 		const { genId, name, monthId, spending } = this.state;
 		const { id } = this.props.user.user;
 		const userId = id;
@@ -44,20 +59,20 @@ class NewCharge extends Component {
 				genId: genId,
 				name: name,
 				monthId: monthId,
-				spending: spending
+				total: spending
 			})
 			.then(res => {
-				console.log(res.data);
 				this.props.history.push("/dashboard");
 			});
 	}
 
 	render() {
-		console.log(this.props.user);
 		const { error, redirect, loading } = this.props.user;
 		if (error || redirect) return <Redirect to="/auth/login" />;
 		if (loading) return <div>Loading</div>;
 		const { genId } = this.state;
+		console.log(this.props.user);
+
 		const otherInput = () => {
 			if (+genId === 1) {
 				return (
@@ -189,7 +204,12 @@ class NewCharge extends Component {
 		};
 		return (
 			<div>
-				What Categroy is the purcahse in?
+				{this.props.user.editing ? (
+					<h2>What Changed About Your Budget?</h2>
+				) : (
+					<h2>What Did You Buy?</h2>
+				)}
+				Pick a Category?
 				<select onChange={e => this.handleCategoryChoice(e.target.value)}>
 					<option value="1">Revenue</option>
 					<option value="2">Home</option>
@@ -205,7 +225,11 @@ class NewCharge extends Component {
 				</select>
 				{otherInput()}
 				<input type="number" onChange={e => this.handleSpendingInput(e)} />
-				<button onClick={() => this.handleSubmit()}>Submit</button>
+				{this.props.user.editing ? (
+					<button onClick={() => this.handleExpenseSubmit()}>Submit</button>
+				) : (
+					<button onClick={() => this.handleSpendingSubmit()}>Submit</button>
+				)}
 			</div>
 		);
 	}

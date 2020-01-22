@@ -25,7 +25,10 @@ class Login extends Component {
 
 	render() {
 		const { user } = this.props;
-		if (user.loggedIn) return <Redirect to="/dashboard" />;
+		if (user.loggedIn) {
+			alert("You Are Now Logged In");
+			this.props.history.push("/dashboard");
+		}
 		return (
 			<div>
 				<div>

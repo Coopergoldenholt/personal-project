@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { getUser } from "../../ducks/reducers/userReducer";
-import { getRevenueExpense } from "../../ducks/reducers/wizardReducers/revenueReducer";
+import {
+	getUser,
+	toggelEditFalse,
+	toggelEditTrue
+} from "../../ducks/reducers/userReducer";
+import { getExpenses } from "../../ducks/reducers/expensesReducer";
 import { connect } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import RevenueDisplay from "../Display/RevenueDisplay";
 import HomeDisplay from "../Display/HomeDisplay";
 import DailyLivingDisplay from "../Display/DailyLivingDisplay";
@@ -14,6 +18,7 @@ import RecreationDisplay from "../Display/RecreationDisplay";
 import SubscriptionDisplay from "../Display/SubscriptionDisplay";
 import PersonalDisplay from "../Display/PersonalDisplay";
 import ObligationsDisplay from "../Display/ObligationsDisplay";
+import BarChart from "../Graphs/BarChart";
 import "./Dashboard.scss";
 
 class Dashboard extends Component {
@@ -27,10 +32,12 @@ class Dashboard extends Component {
 	componentDidMount() {
 		const { id } = this.props.user.user;
 		this.props.getUser();
-		this.props.getRevenueExpense(id);
+		this.props.getExpenses(id);
 	}
+
 	render() {
 		const { revenue } = this.props.revenue;
+		console.log(this.props.user);
 		const revenueExpenses = revenue.filter(ele => {
 			return ele.gen_id === 1;
 		});
@@ -50,14 +57,26 @@ class Dashboard extends Component {
 			return ele.gen_id === 2;
 		});
 		const homeDisplay = homeExpenses.map(ele => {
-			return <HomeDisplay key={ele.id} total={ele.total} name={ele.name} />;
+			return (
+				<HomeDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
+			);
 		});
 		const dailyLivingExpenses = revenue.filter(ele => {
 			return ele.gen_id === 3;
 		});
 		const dailyLivingDisplay = dailyLivingExpenses.map(ele => {
 			return (
-				<DailyLivingDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<DailyLivingDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 		const transportationExpenses = revenue.filter(ele => {
@@ -65,7 +84,12 @@ class Dashboard extends Component {
 		});
 		const transportationDisplay = transportationExpenses.map(ele => {
 			return (
-				<TransportationDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<TransportationDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 		const entertainmentExpenses = revenue.filter(ele => {
@@ -73,27 +97,51 @@ class Dashboard extends Component {
 		});
 		const entertainmentDisplay = entertainmentExpenses.map(ele => {
 			return (
-				<EntertainmentDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<EntertainmentDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 		const healthExpenses = revenue.filter(ele => {
 			return ele.gen_id === 6;
 		});
 		const healthDisplay = healthExpenses.map(ele => {
-			return <HealthDisplay key={ele.id} total={ele.total} name={ele.name} />;
+			return (
+				<HealthDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
+			);
 		});
 		const vacationExpenses = revenue.filter(ele => {
 			return ele.gen_id === 7;
 		});
 		const vacationDisplay = vacationExpenses.map(ele => {
-			return <VacationDisplay key={ele.id} total={ele.total} name={ele.name} />;
+			return (
+				<VacationDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
+			);
 		});
 		const recreationExpenses = revenue.filter(ele => {
 			return ele.gen_id === 8;
 		});
 		const recreationDisplay = recreationExpenses.map(ele => {
 			return (
-				<RecreationDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<RecreationDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 		const subscriptionExpenses = revenue.filter(ele => {
@@ -101,33 +149,74 @@ class Dashboard extends Component {
 		});
 		const subscriptionDisplay = subscriptionExpenses.map(ele => {
 			return (
-				<SubscriptionDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<SubscriptionDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 		const personalExpenses = revenue.filter(ele => {
 			return ele.gen_id === 10;
 		});
 		const personalDisplay = personalExpenses.map(ele => {
-			return <PersonalDisplay key={ele.id} total={ele.total} name={ele.name} />;
+			return (
+				<PersonalDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
+			);
 		});
 		const obligationsExpenses = revenue.filter(ele => {
 			return ele.gen_id === 11;
 		});
 		const obligationsDisplay = obligationsExpenses.map(ele => {
 			return (
-				<ObligationsDisplay key={ele.id} total={ele.total} name={ele.name} />
+				<ObligationsDisplay
+					key={ele.id}
+					total={ele.total}
+					name={ele.name}
+					spending={ele.spending}
+				/>
 			);
 		});
 
 		const { error, redirect, loading } = this.props.user;
-		if (error || redirect) return <Redirect to="/auth/login" />;
+		const { subscription } = this.props.user.user;
+		if (error || redirect) {
+			alert("You Are Not Authorized To Visit This Page, Please Login");
+			this.props.history.push("/auth/login");
+		} else if (!subscription) {
+			alert("You Are Not Subscribed");
+			this.props.history.push("/auth/subscribe");
+		}
 		if (loading) return <div>Loading</div>;
 
 		return (
 			<div>
+				<BarChart />
 				<Link to="/form/new-charge">
-					<button>Buy Something?</button>
+					<button
+						onClick={() => {
+							this.props.toggelEditFalse();
+						}}
+					>
+						Buy Something?
+					</button>
 				</Link>
+				<Link to="/form/new-charge">
+					<button
+						onClick={() => {
+							this.props.toggelEditTrue();
+						}}
+					>
+						Edit Your Budget
+					</button>
+				</Link>
+
 				<div className="all-displays">
 					<div className="display">{revenueDisplay}</div>
 					<div className="display">{homeDisplay}</div>
@@ -154,6 +243,9 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getUser, getRevenueExpense })(
-	Dashboard
-);
+export default connect(mapStateToProps, {
+	getUser,
+	getExpenses,
+	toggelEditFalse,
+	toggelEditTrue
+})(withRouter(Dashboard));

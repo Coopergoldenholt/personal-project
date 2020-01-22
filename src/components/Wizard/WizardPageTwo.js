@@ -43,65 +43,49 @@ class WizardPageTwo extends Component {
 			total: mortgage,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("first axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Rent",
 			total: rent,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("second axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "HOA",
 			total: hoa,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Property Taxes",
 			total: propertyTaxes,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Home Insurance",
 			total: homeInsurance,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Repairs",
 			total: repairs,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Services",
 			total: services,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		Axios.post(`/api/expenses/${user.id}`, {
 			name: "Utilities",
 			total: utilities,
 			genId: 2,
 			monthId: monthId
-		}).then(res => {
-			console.log("third axios call");
-		});
+		}).then(res => {});
 		this.props.history.push("/form/three");
 	};
 
