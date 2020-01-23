@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Bar } from "react-chartjs-2";
-import { getSumExpenses } from "../../ducks/reducers/expensesReducer";
+import {
+	getSumExpenses,
+	getSumSpending
+} from "../../ducks/reducers/expensesReducer";
 
 class BarChart extends Component {
 	constructor(props) {
@@ -25,44 +28,55 @@ class BarChart extends Component {
 	componentDidMount() {
 		const { id } = this.props.user.user;
 		const userId = id;
-		const { totalSums } = this.props.revenue;
-		console.log(totalSums);
 		this.props.getSumExpenses(userId);
+		this.props.getSumSpending(userId);
 	}
 	render() {
-		const { totalSums } = this.props.revenue;
-		let sumArr = totalSums.map(ele => {
+		const { totalSums, spendingSums } = this.props.revenue;
+		let sumBudget = totalSums.map(ele => {
+			return +ele.sum;
+		});
+		let sumSpending = spendingSums.map(ele => {
 			return +ele.sum;
 		});
 
-		console.log(sumArr);
-
 		return (
-			<div>
+			<div className="canvas-container">
 				<Bar
 					data={{
 						labels: this.state.labels,
 						datasets: [
 							{
-								label: "Money Spent",
+								label: "Budget Set",
+								backgroundColor: "#777B7E",
+								borderColor: "rgba(0,0,0,1)",
+								borderWidth: 2,
+								data: sumBudget
+							},
+							{
+								label: "Money Spent/Made",
 								backgroundColor: "rgba(75,192,192,1)",
 								borderColor: "rgba(0,0,0,1)",
 								borderWidth: 2,
-								data: sumArr
+								data: sumSpending
 							}
 						]
 					}}
 					options={{
 						title: {
 							display: true,
-							text: "Monthly Spending Habits",
+							text: "Budget Compared To Actual",
 							fontSize: 20
 						},
 						legend: {
 							display: true,
-							position: "right"
-						}
+							position: "top"
+						},
+						responsive: true,
+						maintainAspectRatio: true
 					}}
+					width="auto"
+					height="auto"
 				/>
 			</div>
 		);
@@ -77,4 +91,6 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getSumExpenses })(BarChart);
+export default connect(mapStateToProps, { getSumExpenses, getSumSpending })(
+	BarChart
+);

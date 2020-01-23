@@ -19,6 +19,7 @@ import SubscriptionDisplay from "../Display/SubscriptionDisplay";
 import PersonalDisplay from "../Display/PersonalDisplay";
 import ObligationsDisplay from "../Display/ObligationsDisplay";
 import BarChart from "../Graphs/BarChart";
+import DonutChart from "../Graphs/DonutChart";
 import "./Dashboard.scss";
 
 class Dashboard extends Component {
@@ -37,7 +38,6 @@ class Dashboard extends Component {
 
 	render() {
 		const { revenue } = this.props.revenue;
-		console.log(this.props.user);
 		const revenueExpenses = revenue.filter(ele => {
 			return ele.gen_id === 1;
 		});
@@ -189,46 +189,89 @@ class Dashboard extends Component {
 		if (error || redirect) {
 			alert("You Are Not Authorized To Visit This Page, Please Login");
 			this.props.history.push("/auth/login");
-		} else if (!subscription) {
+		}
+		if (!subscription) {
 			alert("You Are Not Subscribed");
 			this.props.history.push("/auth/subscribe");
 		}
 		if (loading) return <div>Loading</div>;
 
 		return (
-			<div>
-				<BarChart />
-				<Link to="/form/new-charge">
-					<button
-						onClick={() => {
-							this.props.toggelEditFalse();
-						}}
-					>
-						Buy Something?
-					</button>
-				</Link>
-				<Link to="/form/new-charge">
-					<button
-						onClick={() => {
-							this.props.toggelEditTrue();
-						}}
-					>
-						Edit Your Budget
-					</button>
-				</Link>
+			<div className="dashboard-body">
+				<div className="display-dashboard-buttons">
+					<Link to="/form/new-charge">
+						<button
+							className="dashboard-button buy-something-button"
+							onClick={() => {
+								this.props.toggelEditFalse();
+							}}
+						>
+							Buy Something?
+						</button>
+					</Link>
+					<Link to="/form/new-charge">
+						<button
+							className="dashboard-button edit-budget-button"
+							onClick={() => {
+								this.props.toggelEditTrue();
+							}}
+						>
+							Edit Your Budget
+						</button>
+					</Link>
+				</div>
+				<div className="barChart">
+					<BarChart />
+					<DonutChart />
+				</div>
 
 				<div className="all-displays">
-					<div className="display">{revenueDisplay}</div>
-					<div className="display">{homeDisplay}</div>
-					<div className="display">{dailyLivingDisplay}</div>
-					<div className="display">{transportationDisplay}</div>
-					<div className="display">{entertainmentDisplay}</div>
-					<div className="display">{healthDisplay}</div>
-					<div className="display">{vacationDisplay}</div>
-					<div className="display">{recreationDisplay}</div>
-					<div className="display">{subscriptionDisplay}</div>
-					<div className="display">{personalDisplay}</div>
-					<div className="display">{obligationsDisplay}</div>
+					<div className="display">
+						<h2 className="expense-name">REVENUE</h2>
+						{revenueDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">HOME EXPENSES</h2>
+						{homeDisplay}
+					</div>
+					<div className="display">
+						{" "}
+						<h2 className="expense-name">DAILING LIVING EXPENSES</h2>
+						{dailyLivingDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">TRANSPORTATION EXPENSES</h2>
+						{transportationDisplay}
+					</div>
+					<div className="display">
+						{" "}
+						<h2 className="expense-name">ENTERTAINMENT EXPENSES</h2>
+						{entertainmentDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">HEALTH EXPENSES</h2>
+						{healthDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">VACATION EXPENSES</h2>
+						{vacationDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">RECREATION EXPENSES</h2>
+						{recreationDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">SUBSCRIPTION EXPENSES</h2>
+						{subscriptionDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">PERSONAL EXPENSES</h2>
+						{personalDisplay}
+					</div>
+					<div className="display">
+						<h2 className="expense-name">FINANCIAL OBLIGATIONS EXPENSES</h2>
+						{obligationsDisplay}
+					</div>
 				</div>
 			</div>
 		);

@@ -1,6 +1,76 @@
+.dashboard-body {
+	background: white;
+	color: black;
+}
+
+.canvas-container {
+	padding: 5px;
+}
+
 .display {
 	border: 2px black solid;
 	display: flex;
-	flex-direction: column;
 	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 10px;
+	margin: 20px;
+	.expense-name {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 5px;
+		width: 100%;
+		font-weight: bold;
+		font-size: x-large;
+		text-align: center;
+	}
+
+	.category-display {
+		padding: 7px;
+		.name-display {
+			text-align: center;
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		.budget-spent {
+			padding: 2px;
+			.allocated-budget-line {
+				padding: 2px;
+				.total {
+					color: #4cbb17;
+					font-weight: bold;
+				}
+			}
+			.spending {
+				color: red;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.display-dashboard-buttons {
+	display: flex;
+	justify-content: space-around;
+	padding: 25px;
+}
+
+.dashboard-button {
+	width: 135px;
+	height: 75px;
+	background: #5b8157;
+	border-radius: 5px;
+	color: white;
+	font-size: 1.4rem;
+}
+.dashboard-button:hover {
+	width: 145px;
+	font-weight: 700 !important;
+	letter-spacing: 3px;
+	background: #2d5d27;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+	box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+	transition: all 0.3s ease 0s;
 }

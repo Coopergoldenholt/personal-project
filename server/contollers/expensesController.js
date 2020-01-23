@@ -38,7 +38,12 @@ module.exports = {
 		const db = req.app.get("db");
 		const { userId } = req.params;
 		const expenseSums = await db.expenses.get_sum_expenses([userId]);
-		console.log(expenseSums);
+		res.status(200).send(expenseSums);
+	},
+	getSumSpending: async (req, res) => {
+		const db = req.app.get("db");
+		const { userId } = req.params;
+		const expenseSums = await db.expenses.get_sum_spending([userId]);
 		res.status(200).send(expenseSums);
 	}
 };

@@ -40,6 +40,7 @@ app.get("/api/expenses/:userId", expCtrl.getExpenses);
 app.put(`/api/spending/:userId`, expCtrl.editSpending);
 app.put(`/api/expenses/:userId`, expCtrl.editExpenses);
 app.get(`/api/expenses/total/:userId`, expCtrl.getSumExpenses);
+app.get(`/api/expenses/spending/:userId`, expCtrl.getSumSpending);
 
 //*stripe endpoint
 app.post("/charge", async (req, res) => {

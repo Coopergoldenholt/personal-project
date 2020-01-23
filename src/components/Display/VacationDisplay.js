@@ -3,11 +3,15 @@ import React from "react";
 function VacationDisplay(props) {
 	const { name, total, spending } = props;
 	return (
-		<div>
-			<h2>{name}</h2>
-			<div>
-				<p>Allocated Budget: {total}</p>
-				<p>What You Have Spent: {spending}</p>
+		<div className="category-display">
+			<h2 className="name-display">{name}</h2>
+			<div className="budget-spent">
+				<p className="allocated-budget-line">
+					Allocated Budget: <span className="total">{total}</span>
+				</p>
+				<p className="spent-line">
+					What You Have Spent: <span className="spending">{spending}</span>
+				</p>
 			</div>
 		</div>
 	);

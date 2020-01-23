@@ -33,15 +33,25 @@ class SignUpForm extends Component {
 			<div>
 				<div>
 					Name:
-					<input onChange={e => this.handleChange(e, "name")} />
+					<input
+						maxLength="100"
+						minLength="2"
+						onChange={e => this.handleChange(e, "name")}
+					/>
 				</div>
 				<div>
 					Username:
-					<input onChange={e => this.handleChange(e, "username")} />
+					<input
+						maxLength="100"
+						minLength
+						onChange={e => this.handleChange(e, "username")}
+					/>
 				</div>
 				<div>
 					Password:
 					<input
+						maxLength="100"
+						minLength="1"
 						type="password"
 						onChange={e => this.handleChange(e, "password")}
 					/>

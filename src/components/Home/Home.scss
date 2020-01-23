@@ -1,0 +1,73 @@
+body {
+	background: black;
+	color: white;
+}
+
+.first-page {
+	background-image: url("https://live.staticflickr.com/7704/17123250059_5479539f4f_b.jpg");
+	background-size: cover;
+	height: 85vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	.first-text {
+		color: black;
+		font-weight: bold;
+		font-size: 3rem;
+	}
+	.second-text {
+		color: black;
+		font-size: 1.4rem;
+		padding-top: 1%;
+	}
+}
+
+.second-page {
+	display: flex;
+	justify-content: center;
+	color: white;
+	padding-left: 12.5%;
+	padding-right: 12.5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	font-size: 1.4rem;
+}
+
+.third-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: url("https://cdn-ybmzjsl4laxifkh6ogh.netdna-ssl.com/images/blogImages/7-Steps-to-financial-freedom.jpg");
+	background-size: cover;
+	background-position: 0;
+	height: 60vh;
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	margin-bottom: 5%;
+}
+
+.home-button {
+	padding: 1.4rem;
+	margin: 1%;
+	border-radius: 2em;
+	text-decoration: none;
+	font-weight: 300;
+	color: #ffffff;
+	background-color: #5b8157;
+	text-align: center;
+	transition: all 0.2s;
+	font-size: 1.4rem;
+}
+.home-button:hover {
+	background-color: #2d5d27;
+}
+
+.journey-button {
+	font-size: 1rem;
+	padding: 1.1rem;
+	border-radius: 1.6rem;
+}
