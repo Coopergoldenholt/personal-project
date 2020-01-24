@@ -34,10 +34,8 @@ class DonutChart extends Component {
 	render() {
 		const { spendingSums } = this.props.revenue;
 		let sumSpending = spendingSums.map(ele => {
-			console.log(ele);
 			return +ele.sum;
 		});
-		console.log(sumSpending);
 
 		return (
 			<div className="canvas-container">

@@ -30,10 +30,14 @@ class Dashboard extends Component {
 			genId: 0
 		};
 	}
-	componentDidMount() {
+	async componentDidMount() {
 		const { id } = this.props.user.user;
 		this.props.getUser();
-		this.props.getExpenses(id);
+		await this.props.getExpenses(id);
+		if (!this.props.revenue.revenue[1]) {
+			alert("Please Fill Out Your Budget");
+			this.props.history.push("/form/one");
+		}
 	}
 
 	render() {
@@ -184,7 +188,7 @@ class Dashboard extends Component {
 			);
 		});
 
-		const { error, redirect, loading } = this.props.user;
+		const { error, redirect, loading, user } = this.props.user;
 		const { subscription } = this.props.user.user;
 		if (error || redirect) {
 			alert("You Are Not Authorized To Visit This Page, Please Login");
@@ -194,6 +198,7 @@ class Dashboard extends Component {
 			alert("You Are Not Subscribed");
 			this.props.history.push("/auth/subscribe");
 		}
+
 		if (loading) return <div>Loading</div>;
 
 		return (

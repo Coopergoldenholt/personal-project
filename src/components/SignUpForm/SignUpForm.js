@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { signup } from "../../ducks/reducers/userReducer";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
+import { getUser, logout } from "../../ducks/reducers/userReducer";
 
 class SignUpForm extends Component {
 	constructor() {
@@ -10,8 +11,13 @@ class SignUpForm extends Component {
 			name: "",
 			username: "",
 			password: "",
+			email: "",
 			subscription: false
 		};
+	}
+
+	componentDidMount() {
+		this.props.getUser();
 	}
 
 	handleChange = (e, key) => {
@@ -23,35 +29,33 @@ class SignUpForm extends Component {
 	signUpUser = () => {
 		const { username, password, name, subscription } = this.state;
 		this.props.signup(username, password, name, subscription);
-		this.props.history.push("/auth/subscribe");
 	};
 
 	render() {
 		const { user } = this.props;
-		if (user.loggedIn) return <Redirect to="/form/wizard" />;
+		if (user.data === "Username exists already") {
+			alert(user.data);
+			this.props.logout();
+		}
+		if (user.username) return <Redirect to="/auth/subscribe" />;
+		// if (user.loggedIn) return <Redirect to="/form/wizard" />;
 		return (
 			<div>
 				<div>
 					Name:
-					<input
-						maxLength="100"
-						minLength="2"
-						onChange={e => this.handleChange(e, "name")}
-					/>
+					<input onChange={e => this.handleChange(e, "name")} />
+				</div>
+				<div>
+					Email:
+					<input onChange={e => this.handleChange(e, "email")} />
 				</div>
 				<div>
 					Username:
-					<input
-						maxLength="100"
-						minLength
-						onChange={e => this.handleChange(e, "username")}
-					/>
+					<input onChange={e => this.handleChange(e, "username")} />
 				</div>
 				<div>
 					Password:
 					<input
-						maxLength="100"
-						minLength="1"
 						type="password"
 						onChange={e => this.handleChange(e, "password")}
 					/>
@@ -66,4 +70,6 @@ const mapStateToProps = state => {
 	return state.user;
 };
 
-export default connect(mapStateToProps, { signup })(withRouter(SignUpForm));
+export default connect(mapStateToProps, { signup, getUser, logout })(
+	withRouter(SignUpForm)
+);

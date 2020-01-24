@@ -33,6 +33,7 @@ export const signup = (username, password, name, subscription) => {
 		payload: axios
 			.post("/api/register", { username, password, name, subscription })
 			.then(res => res.data)
+			.catch(err => err.response)
 	};
 };
 
@@ -42,6 +43,7 @@ export const login = (username, password) => {
 		payload: axios
 			.post("/api/login", { username, password })
 			.then(res => res.data)
+			.catch(err => "Loggedin failed")
 	};
 };
 

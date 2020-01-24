@@ -58,7 +58,7 @@ app.post("/charge", async (req, res) => {
 });
 
 //*Subscription Endpoint
-app.post("/api/subscription/:id", subCtrl.switchSubscription);
+app.put("/api/subscription/:id", subCtrl.switchSubscription);
 
 massive(CONNECTION_STRING).then(db => {
 	app.set("db", db);

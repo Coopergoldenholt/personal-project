@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { login, getUser } from "../../ducks/reducers/userReducer";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
+import "./Login.scss";
 
 class Login extends Component {
 	constructor() {
@@ -29,20 +30,32 @@ class Login extends Component {
 			alert("You Are Now Logged In");
 			this.props.history.push("/dashboard");
 		}
+		if (this.props.user === "Loggedin failed") {
+			alert("Username or Password Incorrect");
+		}
 		return (
-			<div>
-				<div>
-					<p>Username:</p>
-					<input onChange={e => this.handleChange(e, "username")} />
+			<div className="login">
+				<div className="login-container">
+					<div className="username-input">
+						<p className="username">Username:</p>
+						<input
+							className="login-input"
+							onChange={e => this.handleChange(e, "username")}
+						/>
+					</div>
+					<div className="password-input">
+						<p className="password">Password:</p>
+						<input
+							className="login-input"
+							type="password"
+							onChange={e => this.handleChange(e, "password")}
+						/>
+					</div>
+
+					<button className="login-button" onClick={() => this.login()}>
+						Login
+					</button>
 				</div>
-				<div>
-					<p>Password:</p>
-					<input
-						type="password"
-						onChange={e => this.handleChange(e, "password")}
-					/>
-				</div>
-				<button onClick={() => this.login()}>Login</button>
 			</div>
 		);
 	}

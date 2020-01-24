@@ -71,7 +71,6 @@ class NewCharge extends Component {
 		if (error || redirect) return <Redirect to="/auth/login" />;
 		if (loading) return <div>Loading</div>;
 		const { genId } = this.state;
-		console.log(this.props.user);
 
 		const otherInput = () => {
 			if (+genId === 1) {
@@ -89,10 +88,10 @@ class NewCharge extends Component {
 						<option value="Rent">Rent</option>
 						<option value="HOA">HOA/FEES/DUES</option>
 						<option value="Property Taxes">Property Taxes</option>
-						<option value="Utilities">Insurance</option>
-						<option value="Services">Repairs</option>
-						<option value="Home Insurance">Services</option>
-						<option value="Repairs">Utilities</option>
+						<option value="Utilities">Utilities</option>
+						<option value="Services">Services</option>
+						<option value="Home Insurance">Home Insurance</option>
+						<option value="Repairs">Repairs</option>
 					</select>
 				);
 			} else if (+genId === 3) {

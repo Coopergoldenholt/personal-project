@@ -17,7 +17,12 @@ module.exports = {
 			name,
 			subscription
 		]);
-		req.session.user = { username: user.username, id: user.id, loggedIn: true };
+		req.session.user = {
+			username: user.username,
+			id: user.id,
+			loggedIn: true,
+			subscription: user.subscription
+		};
 		res.send(req.session.user);
 	},
 

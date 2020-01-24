@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { getUser } from "../../ducks/reducers/userReducer";
 
 class WizardPageOne extends Component {
 	constructor() {
@@ -12,6 +13,9 @@ class WizardPageOne extends Component {
 			misc: 0,
 			monthId: 1
 		};
+	}
+	componentDidMount() {
+		this.props.getUser();
 	}
 
 	handleChange(e, key) {
@@ -70,4 +74,4 @@ class WizardPageOne extends Component {
 
 const mapStateToProps = state => state.user;
 
-export default connect(mapStateToProps)(withRouter(WizardPageOne));
+export default connect(mapStateToProps, { getUser })(withRouter(WizardPageOne));

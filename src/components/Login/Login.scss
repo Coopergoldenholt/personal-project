@@ -1,0 +1,26 @@
+.login {
+	display: flex;
+	background-image: url("https://www.clnsmedia.com/wp-content/uploads/2019/12/www.usnews.jpg");
+	background-size: cover;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+	.login-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		width: 40%;
+		height: 50%;
+		border-radius: 5px;
+		background: rgba(3, 3, 3, 0.25);
+		box-shadow: 1px 1px 50px #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}

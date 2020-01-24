@@ -21,7 +21,8 @@ class Subscribe extends Component {
 		let response = await axios.post("/charge", { token });
 
 		if (response.status === 200) {
-			axios.post(`/api/subscription/${id}`).then(res => {
+			axios.put(`/api/subscription/${id}`).then(res => {
+				this.props.getUser();
 				alert("Thank You For Your Purcahse!");
 				this.props.history.push("/form/one");
 			});
