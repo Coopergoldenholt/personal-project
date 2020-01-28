@@ -10,19 +10,7 @@ class DonutChart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			labels: [
-				"Revenue",
-				"Home",
-				"Daily Living",
-				"Transportation",
-				"Entertainment",
-				"Health",
-				"Vacation",
-				"Recreation",
-				"Subscriptions",
-				"Personal",
-				"Financial Obligations"
-			]
+			isMobile: window.innerWidth < 400
 		};
 	}
 	componentDidMount() {
@@ -102,6 +90,8 @@ class DonutChart extends Component {
 							fontSize: 20
 						}
 					}}
+					width="auto"
+					height={this.state.isMobile ? "450px" : "auto"}
 					// options={{
 					// 	title: {
 					// 		display: true,

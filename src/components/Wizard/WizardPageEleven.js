@@ -66,49 +66,67 @@ class WizardPageNine extends Component {
 			monthId: monthId
 		}).then(res => {});
 
-		this.props.history.push("/form/submit");
+		this.props.history.push("/dashboard");
 	};
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE NINE
-					<p>savings:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "savings")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container wizard-five">
+					<div>
+						<p className="wizard-text">savings:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "savings")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">retirement:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "retirement")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">creditCards:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "creditCards")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">incomeTax(Other):</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "incomeTax")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Other Obligations:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "otherObligations")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Finished!
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>retirement:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "retirement")}
-					/>
-				</div>
-				<div>
-					<p>creditCards:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "creditCards")}
-					/>
-				</div>
-				<div>
-					<p>incomeTax(Other):</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "incomeTax")}
-					/>
-				</div>
-				<div>
-					<p>Other Obligations:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "otherObligations")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

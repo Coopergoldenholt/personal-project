@@ -1,0 +1,76 @@
+.wizard {
+	background: #adc8ad;
+	height: 90vh;
+}
+.wizard-container {
+	padding-top: 5%;
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding-left: 10%;
+}
+
+.wizard-text {
+	font-size: 1.4rem;
+	padding-bottom: 5px;
+}
+
+.wizard-input {
+	width: 20%;
+	height: 50%;
+	border-radius: 5px;
+}
+
+.wizard-button {
+	border-radius: 4px;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin-top: 10px;
+	color: white;
+	background: #2d5d27;
+	border: none;
+	font-size: 1.3rem;
+}
+
+.wizard-button:hover {
+	background: #5b8157;
+}
+
+.wizard-two {
+	height: 70%;
+}
+
+.wizard-three {
+	height: 60%;
+}
+
+.wizard-four {
+	height: 40%;
+}
+
+.wizard-five {
+	height: 50%;
+}
+
+.wizard-seven {
+	height: 65%;
+}
+
+@media (max-width: 390px) {
+	.wizard-container {
+		height: 60%;
+	}
+	.wizard-input {
+		width: 70%;
+		height: 40px;
+	}
+	.wizard-two {
+		height: 90%;
+	}
+	.wizard-three {
+		height: 80%;
+	}
+}

@@ -55,42 +55,71 @@ class WizardPageTen extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE TEN
-					<p>clothing:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "clothing")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container wizard-three">
+					<div>
+						<p className="wizard-text">clothing:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "clothing")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">gifts:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "gifts")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">salon/barber:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "salon")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">books:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "books")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Religous Organization:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "religousOrganization")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Charity:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "charity")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>gifts:</p>
-					<input type="number" onChange={e => this.handleChange(e, "gifts")} />
-				</div>
-				<div>
-					<p>salon/barber:</p>
-					<input type="number" onChange={e => this.handleChange(e, "salon")} />
-				</div>
-				<div>
-					<p>books:</p>
-					<input type="number" onChange={e => this.handleChange(e, "books")} />
-				</div>
-				<div>
-					<p>Religous Organization:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "religousOrganization")}
-					/>
-				</div>
-				<div>
-					<p>Charity:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "charity")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

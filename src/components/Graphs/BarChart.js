@@ -10,19 +10,7 @@ class BarChart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			labels: [
-				"Revenue",
-				"Home",
-				"Daily Living",
-				"Transportation",
-				"Entertainment",
-				"Health",
-				"Vacation",
-				"Recreation",
-				"Subscriptions",
-				"Personal",
-				"Financial Obligations"
-			]
+			isMobile: window.innerWidth < 400
 		};
 	}
 	componentDidMount() {
@@ -44,7 +32,19 @@ class BarChart extends Component {
 			<div className="canvas-container">
 				<Bar
 					data={{
-						labels: this.state.labels,
+						labels: [
+							"Revenue",
+							"Home",
+							"Daily Living",
+							"Transportation",
+							"Entertainment",
+							"Health",
+							"Vacation",
+							"Recreation",
+							"Subscriptions",
+							"Personal",
+							"Financial Obligations"
+						],
 						datasets: [
 							{
 								label: "Budget Set",
@@ -76,7 +76,7 @@ class BarChart extends Component {
 						maintainAspectRatio: true
 					}}
 					width="auto"
-					height="auto"
+					height={this.state.isMobile ? "450px" : "auto"}
 				/>
 			</div>
 		);

@@ -3,6 +3,7 @@ import Axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getUser } from "../../ducks/reducers/userReducer";
+import "./Wizard.scss";
 
 class WizardPageOne extends Component {
 	constructor() {
@@ -50,23 +51,48 @@ class WizardPageOne extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					<p>WAGES: (This should be your NET cash take home)</p>
-					<input type="number" onChange={e => this.handleChange(e, "wage")} />
+			<div className="wizard">
+				<div className="wizard-container">
+					<div>
+						<p className="wizard-text">
+							WAGES: (This should be your NET cash take home)
+						</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "wage")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Interest/Dividends:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "interest")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">
+							Misc: (Any other cash flow that you have)
+						</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "misc")}
+						/>
+					</div>
+					<div className="wizard-button-container">
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>Interest/Dividends:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "interest")}
-					/>
-				</div>
-				<div>
-					<p>Misc: (Any other cash flow that you have)</p>
-					<input type="number" onChange={e => this.handleChange(e, "misc")} />
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

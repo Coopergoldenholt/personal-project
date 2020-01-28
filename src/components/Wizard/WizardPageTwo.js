@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import "./Wizard.scss";
 
 class WizardPageTwo extends Component {
 	constructor() {
@@ -91,58 +92,89 @@ class WizardPageTwo extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					<p>MORTGAGE:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "mortgage")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container  wizard-two">
+					<div>
+						<p className="wizard-text">MORTGAGE:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "mortgage")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">RENT:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "rent")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">HOA/FEES/DUES:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "hoa")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Property Taxes:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "propertyTaxes")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Home Insurance:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "homeInsurance")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Repairs:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "repairs")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Services:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "services")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Utilities:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "utilities")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>RENT:</p>
-					<input type="number" onChange={e => this.handleChange(e, "rent")} />
-				</div>
-				<div>
-					<p>HOA/FEES/DUES:</p>
-					<input type="number" onChange={e => this.handleChange(e, "hoa")} />
-				</div>
-				<div>
-					<p>Property Taxes:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "propertyTaxes")}
-					/>
-				</div>
-				<div>
-					<p>Home Insurance:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "homeInsurance")}
-					/>
-				</div>
-				<div>
-					<p>Repairs:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "repairs")}
-					/>
-				</div>
-				<div>
-					<p>Services:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "services")}
-					/>
-				</div>
-				<div>
-					<p>Utilities:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "utilities")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

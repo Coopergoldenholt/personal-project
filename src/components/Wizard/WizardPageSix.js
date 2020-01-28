@@ -86,55 +86,80 @@ class WizardPageSix extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE SIX
-					<p>Health Club Dues:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "healthClub")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container wizard-seven">
+					<div>
+						<p className="wizard-text">Health Club Dues:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "healthClub")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Health Insurance:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "healthInsurance")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Prescriptions:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "prescriptions")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Over-the-counter-drugs:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "overCounterDrugs")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Co-Payment/Out-of_pocket:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "coPay")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">veterinarians/pet-medicines:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "veterinarians")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Life Insurance:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "lifeInsurance")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>Health Insurance:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "healthInsurance")}
-					/>
-				</div>
-				<div>
-					<p>Prescriptions:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "prescriptions")}
-					/>
-				</div>
-				<div>
-					<p>Over-the-counter-drugs:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "overCounterDrugs")}
-					/>
-				</div>
-				<div>
-					<p>Co-Payment/Out-of_pocket:</p>
-					<input type="number" onChange={e => this.handleChange(e, "coPay")} />
-				</div>
-				<div>
-					<p>veterinarians/pet-medicines:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "veterinarians")}
-					/>
-				</div>
-				<div>
-					<p>Life Insurance:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "lifeInsurance")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

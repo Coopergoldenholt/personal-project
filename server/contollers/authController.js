@@ -4,7 +4,7 @@ const saltRounds = 12;
 module.exports = {
 	register: async (req, res) => {
 		const db = req.app.get("db");
-		const { username, password, name, subscription } = req.body;
+		const { username, password, name, subscription, email } = req.body;
 		const [existingUser] = await db.users.get_user_by_username(username);
 		if (existingUser) {
 			return res.status(400).send("Username exists already");
@@ -15,13 +15,15 @@ module.exports = {
 			username,
 			hash,
 			name,
-			subscription
+			subscription,
+			email
 		]);
 		req.session.user = {
 			username: user.username,
 			id: user.id,
 			loggedIn: true,
-			subscription: user.subscription
+			subscription: user.subscription,
+			email: user.email
 		};
 		res.send(req.session.user);
 	},

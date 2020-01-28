@@ -5,10 +5,16 @@ import { getUser, logout } from "../../ducks/reducers/userReducer";
 import "./Nav.scss";
 
 class Nav extends Component {
+	constructor() {
+		super();
+		this.state = {
+			isMobile: window.innerWidth < 400
+		};
+	}
 	render() {
 		const { user } = this.props;
 		if (user.loggedIn) {
-			return (
+			return !this.state.isMobile ? (
 				<div>
 					<div className="header">
 						<Link to="/">
@@ -26,10 +32,12 @@ class Nav extends Component {
 						</div>
 					</div>
 				</div>
+			) : (
+				"Mobile"
 			);
 		}
 
-		return (
+		return !this.state.isMobile ? (
 			<div>
 				<div className="header">
 					<Link to="/">
@@ -45,6 +53,8 @@ class Nav extends Component {
 					</div>
 				</div>
 			</div>
+		) : (
+			"Mobile"
 		);
 	}
 }

@@ -78,48 +78,71 @@ class WizardPageSeven extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE SEVEN
-					<p>Plane Fare:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "planeFare")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container wizard-three">
+					<div>
+						<p className="wizard-text">Plane Fare:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "planeFare")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">accomidations:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "accomidations")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">food:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "food")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">souveniers:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "souveniers")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">pet boarding:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "petBoarding")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">rental car:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "rentalCar")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>accomidations:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "accomidations")}
-					/>
-				</div>
-				<div>
-					<p>food:</p>
-					<input type="number" onChange={e => this.handleChange(e, "food")} />
-				</div>
-				<div>
-					<p>souveniers:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "souveniers")}
-					/>
-				</div>
-				<div>
-					<p>pet boarding:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "petBoarding")}
-					/>
-				</div>
-				<div>
-					<p>rental car:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "rentalCar")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

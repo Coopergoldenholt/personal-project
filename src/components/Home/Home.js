@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getUser } from "../../ducks/reducers/userReducer";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Home.scss";
 
 class Home extends Component {
@@ -9,13 +10,17 @@ class Home extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="home-body">
 				<div className="first-page">
-					<p className="first-text">You Need This Budget App</p>
-					<p className="second-text">alskdflkjsdflkasf</p>
-					<button className="budgeting-button home-button">
-						Start Budgeting!
-					</button>
+					<div className="first-page-inside">
+						<p className="first-text">You Need This Budget App</p>
+						<p className="second-text">alskdflkjsdflkasf</p>
+						<Link to="/auth/register">
+							<button className="budgeting-button home-button">
+								Start Budgeting!
+							</button>
+						</Link>
+					</div>
 				</div>
 				<div className="second-page">
 					<p>
@@ -36,11 +41,16 @@ class Home extends Component {
 					</p>
 				</div>
 				<div className="third-page">
-					<p>The Road To Finaial Freedom Starts Here.</p>
-					<button className="journey-button home-button">
-						Start Your Journey
-					</button>
+					<div class="third-page-wrap">
+						<p>The Road To Finaial Freedom Starts Here.</p>
+						<Link to="/auth/register">
+							<button className="journey-button home-button">
+								Start Your Journey
+							</button>
+						</Link>
+					</div>
 				</div>
+				<div className="footer"></div>
 			</div>
 		);
 	}

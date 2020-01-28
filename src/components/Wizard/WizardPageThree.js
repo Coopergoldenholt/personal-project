@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import "./Wizard.scss";
 
 class WizardPageThree extends Component {
 	constructor() {
@@ -75,51 +76,71 @@ class WizardPageThree extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE THREE
-					<p>GROCERIES:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "groceries")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container wizard-three">
+					<div>
+						<p className="wizard-text">GROCERIES:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "groceries")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">CHILD CARE:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "childCare")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">DRY CLEANING:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "dryCleaning")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">DINING OUT:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "diningOut")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">HOUSE CLEANING SERVICES:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "houseCleaningServices")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">HOUSEHOLD ITEMS:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "householeItems")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>CHILD CARE:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "childCare")}
-					/>
-				</div>
-				<div>
-					<p>DRY CLEANING:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "dryCleaning")}
-					/>
-				</div>
-				<div>
-					<p>DINING OUT:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "diningOut")}
-					/>
-				</div>
-				<div>
-					<p>HOUSE CLEANING SERVICES:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "houseCleaningServices")}
-					/>
-				</div>
-				<div>
-					<p>HOUSEHOLD ITEMS:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "householeItems")}
-					/>
-				</div>
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

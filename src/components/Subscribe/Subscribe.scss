@@ -1,32 +1,47 @@
-.login {
+.checkout {
 	display: flex;
-	background-image: url("https://www.clnsmedia.com/wp-content/uploads/2019/12/www.usnews.jpg");
-	background-size: cover;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 90vh;
+	background: #113c0c;
 }
-.login-container {
+
+.checkout-container {
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	width: 40%;
-	height: 60%;
+	width: 60%;
+	height: 75%;
 	border-radius: 5px;
-	background: rgba(3, 3, 3, 0.25);
 	box-shadow: 1px 1px 50px #000;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	background: #adc8ad;
+	color: black;
 }
-.login-button {
+.subscribe-first-text {
+	text-align: center;
+}
+.subscribe-second-text {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.stripe {
+	width: 75%;
+	padding-bottom: 7px;
+}
+
+.subscribe-button {
 	padding: 0.7rem;
 	margin: 1%;
-	border-radius: 1.2em;
+	border-radius: 0.7em;
 	text-decoration: none;
 	font-weight: 300;
 	color: #ffffff;
@@ -36,28 +51,12 @@
 	font-size: 0.9rem;
 	border: none;
 }
-.login-button:hover {
+.subscribe-button:hover {
 	background-color: #2d5d27;
 }
 
-.text-input {
-	padding: 5px;
-}
-.login-input {
-	border-radius: 5px;
-	height: 20px;
-}
-
-@media (max-width: 550px) {
-	.login-container {
-		background: #adc8ad;
-		width: 60%;
-	}
-	.login-text {
-		font-size: 1.4rem;
-	}
-	.login-button {
-		padding: 1.2rem;
-		font-size: 1.6rem;
+@media (max-width: 376px) {
+	.checkout-container {
+		height: 50%;
 	}
 }

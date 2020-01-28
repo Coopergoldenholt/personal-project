@@ -64,35 +64,53 @@ class WizardPageEight extends Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					PAGE eight
-					<p>Plane Fare:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "eventTickets")}
-					/>
+			<div className="wizard">
+				<div className="wizard-container  wizard-four">
+					<div>
+						<p className="wizard-text">Plane Fare:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "eventTickets")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Sports Equipment:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "sportsEquipment")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Team Dues:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "teamDues")}
+						/>
+					</div>
+					<div>
+						<p className="wizard-text">Toys/Child Gear:</p>
+						<input
+							placeholder="Insert Number Here"
+							className="wizard-input"
+							type="number"
+							onChange={e => this.handleChange(e, "toys")}
+						/>
+					</div>
+					<div>
+						<button
+							className="wizard-button"
+							onClick={() => this.handleClick()}
+						>
+							Next Category
+						</button>
+					</div>
 				</div>
-				<div>
-					<p>sports Equipment:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "sportsEquipment")}
-					/>
-				</div>
-				<div>
-					<p>team Dues:</p>
-					<input
-						type="number"
-						onChange={e => this.handleChange(e, "teamDues")}
-					/>
-				</div>
-				<div>
-					<p>toys/child gear:</p>
-					<input type="number" onChange={e => this.handleChange(e, "toys")} />
-				</div>
-
-				<button onClick={() => this.handleClick()}></button>
 			</div>
 		);
 	}

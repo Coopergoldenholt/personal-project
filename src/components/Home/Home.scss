@@ -1,4 +1,9 @@
 body {
+	background: white;
+	color: black;
+}
+
+.home-body {
 	background: black;
 	color: white;
 }
@@ -13,6 +18,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
+
 	.first-text {
 		color: black;
 		font-weight: bold;
@@ -43,12 +49,19 @@ body {
 	align-items: center;
 	flex-direction: column;
 	background-image: url("https://cdn-ybmzjsl4laxifkh6ogh.netdna-ssl.com/images/blogImages/7-Steps-to-financial-freedom.jpg");
-	background-size: cover;
-	background-position: 0;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 60vh;
 	margin-left: 12.5%;
 	margin-right: 12.5%;
-	margin-bottom: 5%;
+}
+
+.third-page-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .home-button {
@@ -73,25 +86,41 @@ body {
 	padding: 1.1rem;
 	border-radius: 1.6rem;
 }
+.footer {
+	background: black;
+	width: 100vw;
+	height: 5vh;
+}
 
-@media (max-width: 750px) {
+@media (max-width: 1015px) {
+	.third-page-wrap {
+		padding-bottom: 60px;
+	}
+}
+
+@media (max-width: 376px) {
+	.first-page {
+		background-position: -250px;
+	}
+	.second-page {
+		padding-bottom: 0;
+	}
 	.third-page {
+		height: 30vh;
 		margin-left: 0;
 		margin-right: 0;
+		padding-bottom: 60px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
-}
-
-@media (max-width: 625px) {
-	.third-page {
-		background-position: -100px;
+	.third-page-wrap {
+		padding-bottom: 0;
 	}
-}
-@media (max-width: 350px) {
-	.first-page {
-		background-position: -100px;
+	.journey-button {
+		padding: 0.4rem;
 	}
-	.third-page {
-		background-position: -180px;
-		width: 100%;
+	.footer {
+		height: 1vh;
 	}
 }

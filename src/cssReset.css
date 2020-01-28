@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 html,
 body,
 div,
@@ -126,4 +128,8 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+* {
+	font-family: "Montserrat", sans-serif;
 }

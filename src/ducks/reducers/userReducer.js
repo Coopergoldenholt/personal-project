@@ -27,11 +27,11 @@ export const toggelEditFalse = () => {
 	};
 };
 
-export const signup = (username, password, name, subscription) => {
+export const signup = (username, password, name, subscription, email) => {
 	return {
 		type: SIGNUP,
 		payload: axios
-			.post("/api/register", { username, password, name, subscription })
+			.post("/api/register", { username, password, name, subscription, email })
 			.then(res => res.data)
 			.catch(err => err.response)
 	};

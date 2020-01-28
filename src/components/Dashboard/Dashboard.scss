@@ -1,6 +1,7 @@
 .dashboard-body {
 	background: white;
 	color: black;
+	height: 100%;
 }
 
 .canvas-container {
@@ -58,7 +59,7 @@
 }
 
 .dashboard-button {
-	width: 135px;
+	width: 150px;
 	height: 75px;
 	background: #5b8157;
 	border-radius: 5px;
@@ -66,7 +67,7 @@
 	font-size: 1.4rem;
 }
 .dashboard-button:hover {
-	width: 145px;
+	width: 175px;
 	font-weight: 700 !important;
 	letter-spacing: 3px;
 	background: #2d5d27;

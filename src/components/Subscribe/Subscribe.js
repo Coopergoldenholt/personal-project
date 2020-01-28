@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducers/userReducer";
+import "./Subscribe.scss";
 
 class Subscribe extends Component {
 	constructor() {
@@ -31,22 +32,33 @@ class Subscribe extends Component {
 		}
 	}
 	render() {
-		const { error, redirect, loading } = this.props.user;
-		const { subscription } = this.props.user.user;
-		if (error || redirect) {
-			alert("Please Login or Creat An Account");
-			this.props.history.push("/auth/login");
-		}
-		if (subscription) {
-			alert("You Are Already Subscribed");
-			this.props.history.push("/dashboard");
-		}
+		// const { error, redirect, loading } = this.props.user;
+		// const { subscription } = this.props.user.user;
+		// if (error || redirect) {
+		// 	alert("Please Login or Creat An Account");
+		// 	this.props.history.push("/auth/login");
+		// }
+		// if (subscription) {
+		// 	alert("You Are Already Subscribed");
+		// 	this.props.history.push("/dashboard");
+		// }
 
 		return (
 			<div className="checkout">
-				<p>Would you like to complete the purchase?</p>
-				<CardElement />
-				<button onClick={this.submit}>Purchase</button>
+				<div className="checkout-container">
+					<p className="subscribe-first-text">
+						Would you like to complete this puurchase?
+					</p>
+					<p className="subscribe-second-text">
+						$5 will be pulled out of your account monthly.
+					</p>
+					<div className="stripe">
+						<CardElement />
+					</div>
+					<button className="subscribe-button" onClick={this.submit}>
+						Subscribe
+					</button>
+				</div>
 			</div>
 		);
 	}

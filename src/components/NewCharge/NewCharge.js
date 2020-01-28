@@ -71,6 +71,7 @@ class NewCharge extends Component {
 		if (error || redirect) return <Redirect to="/auth/login" />;
 		if (loading) return <div>Loading</div>;
 		const { genId } = this.state;
+		console.log(this.state.name);
 
 		const otherInput = () => {
 			if (+genId === 1) {
@@ -208,7 +209,7 @@ class NewCharge extends Component {
 				) : (
 					<h2>What Did You Buy?</h2>
 				)}
-				Pick a Category?
+				<p>Pick a Category:</p>
 				<select onChange={e => this.handleCategoryChoice(e.target.value)}>
 					<option value="1">Revenue</option>
 					<option value="2">Home</option>
@@ -222,7 +223,9 @@ class NewCharge extends Component {
 					<option value="10">Personal</option>
 					<option value="11">Financial Obligation</option>
 				</select>
+				<p>Pick a Sub-Category:</p>
 				{otherInput()}
+				<p>Enter In The Amount:</p>
 				<input type="number" onChange={e => this.handleSpendingInput(e)} />
 				{this.props.user.editing ? (
 					<button onClick={() => this.handleExpenseSubmit()}>Submit</button>

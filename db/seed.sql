@@ -34,3 +34,6 @@ ALTER TABLE "expeneses" ADD FOREIGN KEY ("gen_id") REFERENCES "general_category"
 ALTER TABLE "expeneses" ADD FOREIGN KEY ("month_id") REFERENCES "months" ("month_id");
 
 ALTER TABLE "months" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE users
+ADD email varchar(100);

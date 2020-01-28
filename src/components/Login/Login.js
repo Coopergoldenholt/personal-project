@@ -36,15 +36,16 @@ class Login extends Component {
 		return (
 			<div className="login">
 				<div className="login-container">
+					<p className="register">Login</p>
 					<div className="username-input">
-						<p className="username">Username:</p>
+						<p className="signup-text">Username:</p>
 						<input
 							className="login-input"
 							onChange={e => this.handleChange(e, "username")}
 						/>
 					</div>
-					<div className="password-input">
-						<p className="password">Password:</p>
+					<div className="username-input">
+						<p className="signup-text">Password:</p>
 						<input
 							className="login-input"
 							type="password"

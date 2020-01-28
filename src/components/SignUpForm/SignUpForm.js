@@ -3,6 +3,7 @@ import { signup } from "../../ducks/reducers/userReducer";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
 import { getUser, logout } from "../../ducks/reducers/userReducer";
+import "./SignUpForm.scss";
 
 class SignUpForm extends Component {
 	constructor() {
@@ -27,8 +28,8 @@ class SignUpForm extends Component {
 	};
 
 	signUpUser = () => {
-		const { username, password, name, subscription } = this.state;
-		this.props.signup(username, password, name, subscription);
+		const { username, password, name, subscription, email } = this.state;
+		this.props.signup(username, password, name, subscription, email);
 	};
 
 	render() {
@@ -39,28 +40,46 @@ class SignUpForm extends Component {
 		}
 		if (user.username) return <Redirect to="/auth/subscribe" />;
 		// if (user.loggedIn) return <Redirect to="/form/wizard" />;
+		console.log(this.state);
 		return (
-			<div>
-				<div>
-					Name:
-					<input onChange={e => this.handleChange(e, "name")} />
+			<div className="signup">
+				<div className="signup-container">
+					<p className="register">Register</p>
+					<div className="input-text-container">
+						<div className="text-input">
+							<p className="signup-text">Name:</p>
+							<input
+								className="login-input"
+								onChange={e => this.handleChange(e, "name")}
+							/>
+						</div>
+						<div className="text-input">
+							<p className="signup-text">Email:</p>
+							<input
+								className="login-input"
+								onChange={e => this.handleChange(e, "email")}
+							/>
+						</div>
+						<div className="text-input">
+							<p className="signup-text">Username:</p>
+							<input
+								className="login-input"
+								onChange={e => this.handleChange(e, "username")}
+							/>
+						</div>
+						<div className="text-input">
+							<p className="signup-text">Password:</p>
+							<input
+								className="login-input"
+								type="password"
+								onChange={e => this.handleChange(e, "password")}
+							/>
+						</div>
+						<button className="create-user-button" onClick={this.signUpUser}>
+							CREATE USER
+						</button>
+					</div>
 				</div>
-				<div>
-					Email:
-					<input onChange={e => this.handleChange(e, "email")} />
-				</div>
-				<div>
-					Username:
-					<input onChange={e => this.handleChange(e, "username")} />
-				</div>
-				<div>
-					Password:
-					<input
-						type="password"
-						onChange={e => this.handleChange(e, "password")}
-					/>
-				</div>
-				<button onClick={this.signUpUser}>CREATE USER</button>
 			</div>
 		);
 	}
