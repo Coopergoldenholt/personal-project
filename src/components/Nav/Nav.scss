@@ -5,6 +5,8 @@
 	justify-content: space-around;
 	background: #164c10;
 	align-items: center;
+	border: none;
+	position: fixed;
 }
 
 .header-right {
@@ -18,4 +20,32 @@
 	color: white;
 	text-decoration: underline;
 	text-decoration-color: white;
+}
+
+.nav-show {
+	color: white;
+	text-decoration: underline;
+	text-decoration-color: white;
+	padding-left: 8px;
+	padding-top: 5px;
+}
+.nav-right-mobile-show {
+	border: none;
+	background: #164c10;
+	height: 10vh;
+	font-size: 1.6rem;
+	transition: 0.4s;
+	position: fixed;
+	width: 100vw;
+	margin-top: 10vh;
+}
+
+.nav-right-mobile-hide {
+	border: none;
+	background: #164c10;
+	height: 10vh;
+	font-size: 1.6rem;
+	position: absolute;
+	margin-left: -200px;
+	transition: 0.4s;
 }

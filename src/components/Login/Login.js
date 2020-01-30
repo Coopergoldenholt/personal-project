@@ -24,6 +24,13 @@ class Login extends Component {
 		this.props.login(username, password);
 	}
 
+	//let [state, setState] = useState({
+	//username: '',
+	//password: ''
+	//})
+
+	//onChange={(e) => setState({...state, [e.target.name]: e.target.value})}
+
 	render() {
 		const { user } = this.props;
 		if (user.loggedIn) {

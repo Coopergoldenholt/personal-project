@@ -1,11 +1,13 @@
 .signup {
 	display: flex;
-	background-image: url("https://www.clnsmedia.com/wp-content/uploads/2019/12/www.usnews.jpg");
+	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+		url("https://www.clnsmedia.com/wp-content/uploads/2019/12/www.usnews.jpg");
 	background-size: cover;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 90vh;
+	padding-top: 10vh;
 }
 .signup-container {
 	top: 0;
@@ -26,6 +28,7 @@
 .register {
 	font-size: 3rem;
 	padding-bottom: 20px;
+	color: white;
 }
 .input-text-container {
 	display: flex;
@@ -36,6 +39,7 @@
 }
 .signup-text {
 	font-size: 1.8rem;
+	color: white;
 }
 .create-user-button {
 	padding: 0.7rem;

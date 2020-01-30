@@ -50,14 +50,14 @@ class BarChart extends Component {
 								label: "Budget Set",
 								backgroundColor: "#777B7E",
 								borderColor: "rgba(0,0,0,1)",
-								borderWidth: 2,
+								borderWidth: 0,
 								data: sumBudget
 							},
 							{
 								label: "Money Spent/Made",
 								backgroundColor: "rgba(75,192,192,1)",
 								borderColor: "rgba(0,0,0,1)",
-								borderWidth: 2,
+								borderWidth: 0,
 								data: sumSpending
 							}
 						]

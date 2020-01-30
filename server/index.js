@@ -53,6 +53,7 @@ app.post("/charge", async (req, res) => {
 
 		return res.status(200).send({ status });
 	} catch (err) {
+		console.log("hello");
 		res.status(500).send(err);
 	}
 });

@@ -5,6 +5,7 @@
 	align-items: center;
 	height: 90vh;
 	background: #113c0c;
+	padding-top: 10vh;
 }
 
 .checkout-container {
@@ -21,16 +22,35 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background: #adc8ad;
+	background: #e9ebee;
 	color: black;
 }
+.subscribe-header {
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: 10%;
+}
+
 .subscribe-first-text {
 	text-align: center;
+	font-size: 1.3rem;
+	width: 70%;
+	padding: 2px;
+	line-height: 2rem;
 }
 .subscribe-second-text {
 	text-align: center;
+	font-size: 1.3rem;
+	width: 70%;
+	line-height: 2rem;
 	padding-top: 5px;
 	padding-bottom: 10px;
+}
+
+.subscribe-third-text {
+	padding: 10px;
+	text-align: center;
+	font-size: 0.5rem;
 }
 
 .stripe {
@@ -55,8 +75,21 @@
 	background-color: #2d5d27;
 }
 
+.subscribe-loader {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @media (max-width: 376px) {
+	.checkout {
+		background: #e9ebee;
+	}
+
 	.checkout-container {
-		height: 50%;
+		height: 85%;
+		width: 70%;
 	}
 }

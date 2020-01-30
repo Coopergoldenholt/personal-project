@@ -43,6 +43,7 @@ class DonutChart extends Component {
 						],
 						datasets: [
 							{
+								borderWidth: 0,
 								data: [
 									sumSpending[1],
 									sumSpending[2],
@@ -88,7 +89,8 @@ class DonutChart extends Component {
 							display: true,
 							text: "Monthly Spending Habits",
 							fontSize: 20
-						}
+						},
+						legend: {}
 					}}
 					width="auto"
 					height={this.state.isMobile ? "450px" : "auto"}

@@ -14,7 +14,7 @@ class Home extends Component {
 				<div className="first-page">
 					<div className="first-page-inside">
 						<p className="first-text">You Need This Budget App</p>
-						<p className="second-text">alskdflkjsdflkasf</p>
+						<p className="second-text">It's a pretty cool App</p>
 						<Link to="/auth/register">
 							<button className="budgeting-button home-button">
 								Start Budgeting!
@@ -42,7 +42,9 @@ class Home extends Component {
 				</div>
 				<div className="third-page">
 					<div class="third-page-wrap">
-						<p>The Road To Finaial Freedom Starts Here.</p>
+						<p className="home-third-page-text">
+							The Road To Finacial Freedom Starts Here.
+						</p>
 						<Link to="/auth/register">
 							<button className="journey-button home-button">
 								Start Your Journey
