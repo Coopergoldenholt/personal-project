@@ -41,7 +41,7 @@ class Home extends Component {
 					</p>
 				</div>
 				<div className="third-page">
-					<div class="third-page-wrap">
+					<div className="third-page-wrap">
 						<p className="home-third-page-text">
 							The Road To Finacial Freedom Starts Here.
 						</p>

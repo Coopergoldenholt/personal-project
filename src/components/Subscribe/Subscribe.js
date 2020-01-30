@@ -49,7 +49,6 @@ class Subscribe extends Component {
 		}
 	}
 	render() {
-		console.log(this.state);
 		const { error, redirect } = this.props.user;
 		const { subscription } = this.props.user.user;
 		if (error || redirect) {

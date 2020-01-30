@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { login, getUser } from "../../ducks/reducers/userReducer";
 import { connect } from "react-redux";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./Login.scss";
 
 class Login extends Component {

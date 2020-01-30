@@ -34,14 +34,12 @@ class SignUpForm extends Component {
 
 	render() {
 		const { user } = this.props;
-		console.log(user);
 		if (user.data === "Username exists already") {
 			alert(user.data);
 			this.props.logout();
 		}
 		if (user.username) return <Redirect to="/auth/subscribe" />;
 		if (user.loggedIn && user.subscription) return <Redirect to="/dashboard" />;
-		console.log(this.state);
 		return (
 			<div className="signup">
 				<div className="signup-container">

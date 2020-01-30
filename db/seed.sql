@@ -37,3 +37,21 @@ ALTER TABLE "months" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE users
 ADD email varchar(100);
+
+create table charge (
+"id" serial primary key,
+"amount" int,
+"name" varchar(100)
+)
+alter table charge add "month_id" int 
+
+
+ALTER TABLE "charge" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+
+ALTER TABLE "charge" ADD FOREIGN KEY ("gen_id") REFERENCES "general_category" ("gen_id");
+
+ALTER TABLE "charge" ADD FOREIGN KEY ("month_id") REFERENCES "months" ("month_id");
+
+alter table charge add "expense_id" int 
+
+ALTER TABLE "charge" ADD FOREIGN KEY ("expense_id") REFERENCES "expenses" ("id");

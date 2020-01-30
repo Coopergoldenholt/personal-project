@@ -22,8 +22,22 @@ module.exports = {
 		const db = req.app.get("db");
 		const { spending, genId, monthId, name } = req.body;
 		const { userId } = req.params;
-		await db.expenses.edit_spending([userId, genId, monthId, name, spending]);
-
+		const [expenses] = await db.expenses.edit_spending([
+			userId,
+			genId,
+			monthId,
+			name,
+			spending
+		]);
+		console.log(expenses);
+		await db.expenses.edit_charges([
+			name,
+			spending,
+			userId,
+			genId,
+			monthId,
+			expenses.id
+		]);
 		res.status(200).send("Spending Added");
 	},
 	editExpenses: async (req, res) => {
@@ -45,5 +59,22 @@ module.exports = {
 		const { userId } = req.params;
 		const expenseSums = await db.expenses.get_sum_spending([userId]);
 		res.status(200).send(expenseSums);
+	},
+	getCharges: async (req, res) => {
+		const db = req.app.get("db");
+		const { userId } = req.params;
+		const { monthId } = req.query;
+		console.log(monthId);
+		const charges = await db.expenses.get_charges([userId, monthId]);
+		res.status(200).send(charges);
+	},
+	deleteExpense: async (req, res) => {
+		const db = req.app.get("db");
+		const { expenseId } = req.params;
+		const { charge } = req.query;
+		console.log(expenseId);
+		console.log(charge);
+		await db.expenses.delete_charge_expense([expenseId, charge]);
+		res.sendStatus(200);
 	}
 };

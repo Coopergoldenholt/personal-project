@@ -41,6 +41,8 @@ app.put(`/api/spending/:userId`, expCtrl.editSpending);
 app.put(`/api/expenses/:userId`, expCtrl.editExpenses);
 app.get(`/api/expenses/total/:userId`, expCtrl.getSumExpenses);
 app.get(`/api/expenses/spending/:userId`, expCtrl.getSumSpending);
+app.get(`/api/charges/:userId`, expCtrl.getCharges);
+app.delete(`/api/expenses/:expenseId`, expCtrl.deleteExpense);
 
 //*stripe endpoint
 app.post("/charge", async (req, res) => {
@@ -53,7 +55,6 @@ app.post("/charge", async (req, res) => {
 
 		return res.status(200).send({ status });
 	} catch (err) {
-		console.log("hello");
 		res.status(500).send(err);
 	}
 });
